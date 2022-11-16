@@ -1,5 +1,11 @@
+import Title from '../components/Title';
+
 function MainPage() {
-  return <div>메인</div>;
+  return (
+    <div>
+      <Title />
+    </div>
+  );
 }
 
 export default MainPage;
