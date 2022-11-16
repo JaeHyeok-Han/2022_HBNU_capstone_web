@@ -8,7 +8,7 @@ import ResultItem from '../components/ResultItem';
 
 const Text = styled.p`
   text-align: center;
-  font: ${thema.font.p1};
+  font: ${thema.font.p2};
 `;
 const ResultBox = styled.div`
   width: 100%;

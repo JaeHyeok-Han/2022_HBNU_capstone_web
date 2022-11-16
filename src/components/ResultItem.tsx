@@ -28,10 +28,10 @@ const InfoBox = styled.div`
   height: 100%;
 
   & div:nth-child(1) {
-    font: ${thema.font.p1};
+    font: ${thema.font.pb1};
   }
   & div {
-    font: ${thema.font.p2};
+    font: ${thema.font.p3};
   }
 `;
 

@@ -27,7 +27,7 @@ const Btn = styled.div<custom>`
   height: 100%;
   margin: ${(prop) => (prop.position ? '0 2px 0 4px' : '0 4px 0 2px')};
   border-radius: 6px;
-  font: ${thema.font.p2};
+  font: ${thema.font.pb2};
   color: ${(prop) => (prop.value ? 'white' : 'black')};
   background: #2257c0;
 `;
@@ -59,7 +59,7 @@ function DetailPage() {
           감상포인트 분석
         </Btn>
       </BtnBox>
-      <EmptyBar value={10} />
+      <EmptyBar value={13} />
       {tab ? <ReviewBox /> : <EmotionBox />}
     </div>
   );
