@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 200px;
+  height: fit-content;
   padding: 5px 10px;
 `;
 const PosterBox = styled.div`
