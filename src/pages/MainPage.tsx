@@ -8,7 +8,7 @@ function MainPage() {
     <div>
       <Title />
       <SearchBox />
-      <EmptyBar value={10} />
+      <EmptyBar value={50} />
       <RankingBox />
     </div>
   );

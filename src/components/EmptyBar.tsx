@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface custom {
+interface Custom {
   value: number;
 }
 
-const Container = styled.div<custom>`
+const Container = styled.div<Custom>`
   width: 100%;
   height: ${(prop) => prop.value + 'px'};
 `;
