@@ -40,7 +40,7 @@ const Btn = styled.button`
   border: none;
   border-radius: 50%;
   font: ${thema.font.h3};
-  color: black;
+  color: #2257c0;
 `;
 
 function RankingBox() {

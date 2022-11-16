@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import thema from '../style/thema';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import useSearchStore from '../store/searchStore';
+import ErrorPopup from './ErrorPopup';
 import { getSearchResult } from '../apis/movieAPI';
 
 const Container = styled.div`
@@ -17,7 +20,7 @@ const SearchBar = styled.div`
   align-items: center;
   width: 85%;
   height: 100%;
-  border: 1px solid black;
+  border: 1px solid #2257c0;
   border-radius: 20px;
 
   & input {
@@ -37,15 +40,17 @@ const SearchBar = styled.div`
     width: 40px;
     height: 100%;
     border: none;
-    border-radius: 50%;
+    border-radius: 20px;
     font: ${thema.font.p2};
-    color: black;
+    color: white;
+    background: #2257c0;
   }
 `;
 
 function SearchBox() {
   const [value, setValue] = useState('');
   const navigate = useNavigate();
+  const MySwal = withReactContent(Swal);
   const { setSearchKeyword, setSearchResult } = useSearchStore();
 
   const valueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,13 +73,40 @@ function SearchBox() {
           setSearchResult(newRes);
           navigate('/search');
         } else {
-          // 검색결과가 없다는 팝업
+          MySwal.fire({
+            html: <ErrorPopup message="검색결과가 없습니다." />,
+            showConfirmButton: false,
+            width: '300px',
+            padding: 0,
+            timer: 1500,
+            customClass: {
+              popup: 'popup-border-radius',
+            },
+          });
         }
       } else {
-        //  오류가 있다는 팝업
+        MySwal.fire({
+          html: <ErrorPopup message={response.message} />,
+          showConfirmButton: false,
+          width: '300px',
+          padding: 0,
+          timer: 1500,
+          customClass: {
+            popup: 'popup-border-radius',
+          },
+        });
       }
     } else {
-      // 검색어가 너무 짧다는 팝업
+      MySwal.fire({
+        html: <ErrorPopup message="검색어가 너무 짧습니다!" />,
+        showConfirmButton: false,
+        width: '300px',
+        padding: 0,
+        timer: 1500,
+        customClass: {
+          popup: 'popup-border-radius',
+        },
+      });
     }
   };
 

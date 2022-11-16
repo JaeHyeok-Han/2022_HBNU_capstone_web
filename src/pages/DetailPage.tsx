@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import thema from '../style/thema';
 import useMovieStore from '../store/movieStore';
@@ -7,6 +7,7 @@ import DetailBox from '../components/DetailBox';
 import EmptyBar from '../components/EmptyBar';
 import ReviewBox from '../components/ReviewBox';
 import EmotionBox from '../components/EmotionBox';
+import { getReviewData } from '../apis/reviewAPI';
 import type { MovieDetail } from '../interfaces/movie';
 
 interface custom {
@@ -35,6 +36,21 @@ const Btn = styled.div<custom>`
 function DetailPage() {
   const [tab, setTab] = useState(true);
   const { movie } = useMovieStore();
+
+  const fetchReviewDate = useCallback(async () => {
+    const response = await getReviewData(
+      (movie as MovieDetail).DOCID,
+      (movie as MovieDetail).title,
+    );
+    if (!('error' in response)) {
+    } else {
+      // 리뷰데이터가 없을때의 처리
+    }
+  }, [movie]);
+
+  useEffect(() => {
+    fetchReviewDate();
+  }, [fetchReviewDate]);
 
   return (
     <div>

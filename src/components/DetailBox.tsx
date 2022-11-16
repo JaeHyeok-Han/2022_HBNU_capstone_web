@@ -38,6 +38,7 @@ const PlotBox = styled.div`
   height: fit-content;
   max-height: 115px;
   padding: 5px 10px;
+  margin-top: 10px;
   font: ${thema.font.p2};
   overflow-y: scroll;
 `;

@@ -46,7 +46,7 @@ async function getMovieInfo(title: string): Promise<MovieDetail | ErrorDTO> {
   } catch (err) {
     return {
       error: true,
-      message: '서버오류로 인해 영화순위를 가져오지 못했습니다.',
+      message: '서버오류로 인해 영화정보를 가져오지 못했습니다.',
     };
   }
 }
@@ -58,7 +58,7 @@ async function getSearchResult(searchKeyword: string): Promise<MovieDetail[] | E
     );
     if (response.ok) {
       const jsonRes = await response.json();
-      return jsonRes.Data[0].Result;
+      return jsonRes.Data[0].Result !== undefined ? jsonRes.Data[0].Result : [];
     } else {
       return {
         error: true,
@@ -68,7 +68,7 @@ async function getSearchResult(searchKeyword: string): Promise<MovieDetail[] | E
   } catch (err) {
     return {
       error: true,
-      message: '서버오류로 인해 영화순위를 가져오지 못했습니다.',
+      message: '서버오류로 인해 검색결과를 가져오지 못했습니다.',
     };
   }
 }

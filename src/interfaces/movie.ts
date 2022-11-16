@@ -48,4 +48,18 @@ interface MovieDetail {
   title: string;
 }
 
-export type { Movie, MovieDetail };
+interface Emotion {
+  start: number;
+  end: number;
+  category: number;
+  flag: number;
+}
+
+interface Review {
+  text: string;
+  auth: string;
+  rate: string;
+  emotion: Emotion[];
+}
+
+export type { Movie, MovieDetail, Review };

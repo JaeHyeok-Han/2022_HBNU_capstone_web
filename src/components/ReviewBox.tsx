@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import thema from '../style/thema';
+import useMovieStore from '../store/movieStore';
 import EmptyBar from './EmptyBar';
+import ReviewItem from './ReviewItem';
 
 const Container = styled.div`
   width: 100%;
@@ -27,6 +29,8 @@ const EmotionSelectionBox = styled.div`
 `;
 
 function ReviewBox() {
+  const { review } = useMovieStore();
+
   return (
     <Container>
       <EmotionSelectionBox>
@@ -37,6 +41,9 @@ function ReviewBox() {
         <span>OST</span>
       </EmotionSelectionBox>
       <EmptyBar value={10} />
+      {review.map((ele, index) => (
+        <ReviewItem key={index} item={ele} />
+      ))}
     </Container>
   );
 }
