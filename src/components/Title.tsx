@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.header`
@@ -12,9 +13,17 @@ const Container = styled.header`
 `;
 
 function Title() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <img src={require('../images/moviecom_logo.png')} alt="서비스 로고" />
+      <img
+        src={require('../images/moviecom_logo.png')}
+        alt="서비스 로고"
+        onClick={() => {
+          navigate('/main', { replace: true });
+        }}
+      />
     </Container>
   );
 }

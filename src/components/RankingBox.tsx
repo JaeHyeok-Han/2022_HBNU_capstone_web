@@ -67,8 +67,8 @@ function RankingBox() {
   }, [initRanking]);
 
   useEffect(() => {
-    fetchRanking();
-  }, [fetchRanking]);
+    if (ranking.length === 0) fetchRanking();
+  }, [ranking, fetchRanking]);
 
   return (
     <Container>
