@@ -35,8 +35,8 @@ async function getMovieInfo(title: string): Promise<MovieDetail | ErrorDTO> {
       `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=${kmdbKEY}&listCount=1&title=${title}&detail=Y&sort=prodYear,1`,
     );
     if (response.ok) {
-      const jsonResponse = await response.json();
-      return jsonResponse.Data[0].Result[0];
+      const jsonRes = await response.json();
+      return jsonRes.Data[0].Result[0];
     } else {
       return {
         error: true,
@@ -51,4 +51,26 @@ async function getMovieInfo(title: string): Promise<MovieDetail | ErrorDTO> {
   }
 }
 
-export { getRanking, getMovieInfo };
+async function getSearchResult(searchKeyword: string): Promise<MovieDetail[] | ErrorDTO> {
+  try {
+    const response = await fetch(
+      `https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=${kmdbKEY}&listCount=10&title=${searchKeyword}&detail=Y&sort=RANK,1`,
+    );
+    if (response.ok) {
+      const jsonRes = await response.json();
+      return jsonRes.Data[0].Result;
+    } else {
+      return {
+        error: true,
+        message: response.statusText,
+      };
+    }
+  } catch (err) {
+    return {
+      error: true,
+      message: '서버오류로 인해 영화순위를 가져오지 못했습니다.',
+    };
+  }
+}
+
+export { getRanking, getMovieInfo, getSearchResult };
