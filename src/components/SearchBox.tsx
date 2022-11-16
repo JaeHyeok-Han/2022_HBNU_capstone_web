@@ -57,8 +57,15 @@ function SearchBox() {
       const response = await getSearchResult(value);
       if (!('error' in response)) {
         if (response.length !== 0) {
+          const newRes = response.map((ele) => {
+            ele.title = ele.title
+              .replace(/( !HS )/g, '')
+              .replace(/( !HE )/g, '')
+              .trim();
+            return ele;
+          });
           setSearchKeyword(value);
-          setSearchResult(response);
+          setSearchResult(newRes);
           navigate('/search');
         } else {
           // 검색결과가 없다는 팝업

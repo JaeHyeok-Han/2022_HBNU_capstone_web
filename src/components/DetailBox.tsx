@@ -4,6 +4,7 @@ import type { MovieDetail } from '../interfaces/movie';
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 200px;
   padding: 5px 10px;
@@ -32,10 +33,16 @@ const InfoBox = styled.div`
     font: ${thema.font.p2};
   }
 `;
+const PlotBox = styled.div`
+  width: 100%;
+  height: fit-content;
+  max-height: 115px;
+  padding: 5px 10px;
+  font: ${thema.font.p1};
+  overflow-y: scroll;
+`;
 
 function DetailBox({ item }: { item: MovieDetail }) {
-  console.log(item);
-
   return (
     <Container>
       <PosterBox>
@@ -62,6 +69,7 @@ function DetailBox({ item }: { item: MovieDetail }) {
             .join(', ')}
         </div>
       </InfoBox>
+      {item.plots ? <PlotBox>{item.plots.plot[0].plotText}</PlotBox> : null}
     </Container>
   );
 }

@@ -39,7 +39,7 @@ interface MovieDetail {
   movieSeq: string;
   nation: string;
   plots: {
-    plit: Plot[];
+    plot: Plot[];
   };
   posters: string;
   rating: string;
