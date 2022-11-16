@@ -1,12 +1,12 @@
 import create from 'zustand';
 import type { Movie } from '../interfaces/movie';
 
-interface MovieStore {
+interface RankingStore {
   ranking: Movie[];
   initRanking: (value: Movie[]) => void;
 }
 
-const useMovieStore = create<MovieStore>((set) => ({
+const useRankingStore = create<RankingStore>((set) => ({
   ranking: [],
   initRanking: (value: Movie[]) =>
     set(() => ({
@@ -14,4 +14,4 @@ const useMovieStore = create<MovieStore>((set) => ({
     })),
 }));
 
-export default useMovieStore;
+export default useRankingStore;

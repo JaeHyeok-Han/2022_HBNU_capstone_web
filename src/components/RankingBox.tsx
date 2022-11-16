@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import thema from '../style/thema';
-import useMovieStore from '../store/movieStore';
+import useRankingStore from '../store/rankingStore';
 import { getRanking } from '../apis/movieAPI';
 import RankingItem from './RankingItem';
 
@@ -45,7 +45,7 @@ const Btn = styled.button`
 
 function RankingBox() {
   const [current, setCurrent] = useState(0);
-  const { ranking, initRanking } = useMovieStore();
+  const { ranking, initRanking } = useRankingStore();
 
   const clickBtn = (direction: number) => {
     direction === 1
