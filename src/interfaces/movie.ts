@@ -22,23 +22,30 @@ interface Movie {
   rank: string;
   rankOldAndNew: string;
 }
+
 interface MovieDetail {
   DOCID: string;
-  actors: Actor[];
+  actors: {
+    actor: Actor[];
+  };
   company: string;
-  directors: Director[];
+  directors: {
+    director: Director[];
+  };
   genre: string;
   keywords: string;
   kmdbUrl: string;
   movieId: string;
   movieSeq: string;
   nation: string;
-  plots: Plot[];
+  plots: {
+    plit: Plot[];
+  };
   posters: string;
   rating: string;
-  repRlsDate: '';
-  runtime: '65';
-  title: ' 잠자리 심문 : 불륜  !HS 자백 !HE ';
+  repRlsDate: string;
+  runtime: string;
+  title: string;
 }
 
 export type { Movie, MovieDetail };
