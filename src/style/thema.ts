@@ -1,10 +1,10 @@
 const thema = {
   font: {
-    h1: "normal 700 56px / 72px 'Pretendard-Regular'",
-    h2: "normal 700 40px / 52px 'Pretendard-Regular'",
-    h3: "normal 700 32px / 42px 'Pretendard-Regular'",
-    h4: "normal 700 24px / 32px 'Pretendard-Regular'",
-    h5: "normal 700 18px / 24px 'Pretendard-Regular'",
+    h1: "normal 700 56px / 72px 'Cafe24Shiningstar'",
+    h2: "normal 700 40px / 52px 'Cafe24Shiningstar'",
+    h3: "normal 700 32px / 42px 'Cafe24Shiningstar'",
+    h4: "normal 700 24px / 32px 'Cafe24Shiningstar'",
+    h5: "normal 700 18px / 24px 'Cafe24Shiningstar'",
     p1: "normal 500 16px / 22px 'Pretendard-Regular'",
     p2: "normal 500 14px / 20px 'Pretendard-Regular'",
     p3: "normal 500 12px / 16px 'Pretendard-Regular'",
