@@ -6,6 +6,12 @@ import SearchBox from '../components/SearchBox';
 import EmptyBar from '../components/EmptyBar';
 import ResultItem from '../components/ResultItem';
 
+const Container = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+`;
+
 const Text = styled.p`
   text-align: center;
   font: ${thema.font.p2};
@@ -19,7 +25,7 @@ function SearchPage() {
   const { searchKeyword, searchResult } = useSearchStore();
 
   return (
-    <div>
+    <Container>
       <Title />
       <SearchBox />
       <EmptyBar value={20} />
@@ -32,7 +38,7 @@ function SearchPage() {
           <ResultItem key={index} item={ele} />
         ))}
       </ResultBox>
-    </div>
+    </Container>
   );
 }
 

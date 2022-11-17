@@ -62,4 +62,10 @@ interface Review {
   emotion: Emotion[];
 }
 
-export type { Movie, MovieDetail, Review };
+interface EmotionAnalyze {
+  emotion: string;
+  positive: number;
+  negative: number;
+}
+
+export type { Movie, MovieDetail, Review, EmotionAnalyze };

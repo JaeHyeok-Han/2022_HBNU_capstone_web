@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import InfoPopup from './InfoPopup';
 import { getMovieInfo } from '../apis/movieAPI';
+import InfoPopup from './InfoPopup';
 import type { Movie, MovieDetail } from '../interfaces/movie';
 
 const Container = styled.div`
@@ -13,10 +13,6 @@ const Container = styled.div`
   & img {
     height: 100%;
   }
-`;
-const EmptyPoster = styled.div`
-  width: 210px;
-  height: 300px;
 `;
 
 function RankingItem({ item }: { item: Movie }) {
@@ -58,7 +54,7 @@ function RankingItem({ item }: { item: Movie }) {
         info.posters.split('|')[0] ? (
           <img src={info.posters.split('|')[0]} alt="영화 포스터" />
         ) : (
-          <EmptyPoster>포스터없음</EmptyPoster>
+          <img src={require('../images/default_poster.png')} alt="영화 포스터" />
         )
       ) : null}
     </Container>

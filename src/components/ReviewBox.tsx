@@ -40,7 +40,7 @@ function ReviewBox() {
         <span>스토리</span>
         <span>OST</span>
       </EmotionSelectionBox>
-      <EmptyBar value={10} />
+      <EmptyBar value={5} />
       {review.map((ele, index) => (
         <ReviewItem key={index} item={ele} />
       ))}

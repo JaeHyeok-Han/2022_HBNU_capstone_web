@@ -50,7 +50,7 @@ function DetailBox({ item }: { item: MovieDetail }) {
         {item.posters.split('|')[0] ? (
           <img src={item.posters.split('|')[0]} alt="영화 포스터" />
         ) : (
-          <div>없음</div>
+          <img src={require('../images/default_poster.png')} alt="영화 포스터" />
         )}
       </PosterBox>
       <InfoBox>

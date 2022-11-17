@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import thema from '../style/thema';
 import useMovieStore from '../store/movieStore';
@@ -15,6 +16,24 @@ interface custom {
   position: boolean;
 }
 
+const Container = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+`;
+
+const BackBtn = styled.div`
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
+  color: #2257c0;
+`;
 const BtnBox = styled.div`
   display: flex;
   width: 100%;
@@ -29,12 +48,13 @@ const Btn = styled.div<custom>`
   margin: ${(prop) => (prop.position ? '0 2px 0 4px' : '0 4px 0 2px')};
   border-radius: 6px;
   font: ${thema.font.pb2};
-  color: ${(prop) => (prop.value ? 'white' : 'black')};
+  color: ${(prop) => (prop.value ? 'white' : '#282828')};
   background: #2257c0;
 `;
 
 function DetailPage() {
   const [tab, setTab] = useState(true);
+  const navigate = useNavigate();
   const { movie } = useMovieStore();
 
   const fetchReviewDate = useCallback(async () => {
@@ -49,11 +69,17 @@ function DetailPage() {
   }, [movie]);
 
   useEffect(() => {
-    fetchReviewDate();
+    // fetchReviewDate();
   }, [fetchReviewDate]);
 
   return (
-    <div>
+    <Container>
+      <BackBtn
+        onClick={() => {
+          navigate(-1);
+        }}>
+        <i className="far fa-chevron-left"></i>
+      </BackBtn>
       <Title />
       <DetailBox item={movie as MovieDetail} />
       <EmptyBar value={10} />
@@ -77,7 +103,7 @@ function DetailPage() {
       </BtnBox>
       <EmptyBar value={13} />
       {tab ? <ReviewBox /> : <EmotionBox />}
-    </div>
+    </Container>
   );
 }
 
