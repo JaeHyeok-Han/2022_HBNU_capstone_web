@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import thema from '../style/thema';
 import useMovieStore from '../store/movieStore';
 import EmotionItem from '../components/EmotionItem';
 

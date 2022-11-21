@@ -1,7 +1,7 @@
 import type { ErrorDTO } from '../interfaces/common';
-import type { Review } from '../interfaces/movie';
+import type { CustomAPI } from '../interfaces/movie';
 
-async function getReviewData(movieId: string, movieTitle: string): Promise<Review[] | ErrorDTO> {
+async function getReviewData(movieId: string, movieTitle: string): Promise<CustomAPI | ErrorDTO> {
   try {
     const response = await fetch(
       `http://203.230.103.35:3000/capstone/review?id=${movieId}&title=${movieTitle}`,

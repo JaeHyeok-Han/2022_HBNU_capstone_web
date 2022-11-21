@@ -55,22 +55,25 @@ const Btn = styled.div<custom>`
 function DetailPage() {
   const [tab, setTab] = useState(true);
   const navigate = useNavigate();
-  const { movie } = useMovieStore();
+  const { movie, addReview, setEmotion } = useMovieStore();
 
-  const fetchReviewDate = useCallback(async () => {
+  const fetchReviewData = useCallback(async () => {
     const response = await getReviewData(
       (movie as MovieDetail).DOCID,
       (movie as MovieDetail).title,
     );
     if (!('error' in response)) {
+      console.log(response);
+      // addReview(response.review);
+      // setEmotion(response.emotion);
     } else {
       // 리뷰데이터가 없을때의 처리
     }
-  }, [movie]);
+  }, [movie, addReview, setEmotion]);
 
   useEffect(() => {
-    // fetchReviewDate();
-  }, [fetchReviewDate]);
+    // fetchReviewData();
+  }, [fetchReviewData]);
 
   return (
     <Container>

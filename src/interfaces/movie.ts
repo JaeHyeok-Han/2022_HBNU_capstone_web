@@ -68,4 +68,9 @@ interface EmotionAnalyze {
   negative: number;
 }
 
-export type { Movie, MovieDetail, Review, EmotionAnalyze };
+interface CustomAPI {
+  review: Review[];
+  emotion: EmotionAnalyze[];
+}
+
+export type { Movie, MovieDetail, Review, EmotionAnalyze, CustomAPI };
