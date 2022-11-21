@@ -63,7 +63,7 @@ function DetailPage() {
       (movie as MovieDetail).title,
     );
     if (!('error' in response)) {
-      console.log(response);
+      // console.log(response);
       // addReview(response.review);
       // setEmotion(response.emotion);
     } else {
@@ -72,7 +72,7 @@ function DetailPage() {
   }, [movie, addReview, setEmotion]);
 
   useEffect(() => {
-    // fetchReviewData();
+    fetchReviewData();
   }, [fetchReviewData]);
 
   return (
