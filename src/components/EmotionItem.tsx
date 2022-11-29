@@ -25,17 +25,11 @@ const BarBox = styled.div`
   margin: 0 0 2px;
 `;
 const Box = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 7%;
-  height: 100%;
-  font: ${thema.font.p3};
+  width: 14%;
+  text-align: center;
 
-  &:first-child,
-  &:last-child {
-    width: 5%;
-    font: ${thema.font.p1};
+  & i {
+    width: 100%;
   }
 `;
 const Bar = styled.div`
@@ -65,18 +59,18 @@ function EmotionItem({ item }: { item: EmotionAnalyze }) {
     <Container>
       <BarBox>
         <Box>
-          <i className="fas fa-thumbs-up"></i>
+          <i className="fas fa-thumbs-up" />
+          {item.positive}%
         </Box>
-        <Box>{item.positive}%</Box>
         <Bar>
           <PosiBar value={item.positive} />
         </Bar>
         <Bar>
           <NegaBar value={item.negative} />
         </Bar>
-        <Box>{item.negative}%</Box>
         <Box>
-          <i className="fas fa-thumbs-down"></i>
+          <i className="fas fa-thumbs-down" />
+          {item.negative}%
         </Box>
       </BarBox>
       <span>{item.emotion}</span>

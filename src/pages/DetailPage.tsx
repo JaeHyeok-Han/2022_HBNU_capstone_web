@@ -21,7 +21,6 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
 `;
-
 const BackBtn = styled.div`
   position: absolute;
   top: 30px;
@@ -55,7 +54,7 @@ const Btn = styled.div<custom>`
 function DetailPage() {
   const [tab, setTab] = useState(true);
   const navigate = useNavigate();
-  const { movie, addReview, setEmotion } = useMovieStore();
+  const { movie, setReview, setEmotion } = useMovieStore();
 
   const fetchReviewData = useCallback(async () => {
     const response = await getReviewData(
@@ -63,13 +62,12 @@ function DetailPage() {
       (movie as MovieDetail).title,
     );
     if (!('error' in response)) {
-      // console.log(response);
-      // addReview(response.review);
-      // setEmotion(response.emotion);
+      setReview(response.review);
+      setEmotion(response.emotion);
     } else {
       // 리뷰데이터가 없을때의 처리
     }
-  }, [movie, addReview, setEmotion]);
+  }, [movie, setReview, setEmotion]);
 
   useEffect(() => {
     fetchReviewData();
@@ -104,7 +102,7 @@ function DetailPage() {
           감상포인트 분석
         </Btn>
       </BtnBox>
-      <EmptyBar value={13} />
+      <EmptyBar value={20} />
       {tab ? <ReviewBox /> : <EmotionBox />}
     </Container>
   );
