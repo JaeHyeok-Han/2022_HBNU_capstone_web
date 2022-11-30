@@ -78,6 +78,8 @@ function DetailPage() {
       <BackBtn
         onClick={() => {
           navigate(-1);
+          setReview([]);
+          setEmotion([]);
         }}>
         <i className="far fa-chevron-left"></i>
       </BackBtn>
